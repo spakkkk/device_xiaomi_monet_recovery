@@ -16,7 +16,6 @@
 #
 
 PRODUCT_RELEASE_NAME := monet
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
 DEVICE_PATH := device/xiaomi/monet
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
@@ -29,10 +28,9 @@ $(call inherit-product, vendor/omni/config/common.mk)
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := monet
 PRODUCT_NAME := omni_monet
-PRODUCT_BRAND := xiaomi
+PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Xiaomi Mi 10 Lite 5G
-PRODUCT_MANUFACTURER := xiaomi
-PRODUCT_RELEASE_NAME := Xiaomi Mi 10 Lite 5G
+PRODUCT_MANUFACTURER := Xiaomi
 
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
