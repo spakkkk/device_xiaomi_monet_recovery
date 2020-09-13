@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2020 The Android Open Source Project
-# Copyright (C) 2020 The TWRP Open Source Project
+# Copyright (C) 2020 The PBRP Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 #
 
 PRODUCT_RELEASE_NAME := monet
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
 DEVICE_PATH := device/xiaomi/monet
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
