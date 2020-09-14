@@ -42,7 +42,11 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno620
 TARGET_SUPPORTS_64_BIT_APPS := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7 androidboot.usbcontroller=a600000.dwc3 skip_override androidboot.fastboot=1
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.hardware=qcom androidboot.console=ttyMSM0
+BOARD_KERNEL_CMDLINE := androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000
+BOARD_KERNEL_CMDLINE := msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3
+BOARD_KERNEL_CMDLINE := swiotlb=2048 cgroup.memory=nokmem,nosocket loop.max_part=7 androidboot.usbconfigfs=true
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive androidboot.boot_devices=soc/1d84000.ufshc
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_BOOT_HEADER_VERSION := 2
@@ -68,9 +72,6 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 
-# QCOM
-#TARGET_USE_SDCLANG := true
-
 # Assert
 TARGET_OTA_ASSERT_DEVICE := monet
 
@@ -84,9 +85,9 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 134217728
 
 # Dynamic Partition
-BOARD_SUPER_PARTITION_SIZE := 6008808800
+BOARD_SUPER_PARTITION_SIZE := 9122611200
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
-BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 6008808800
+BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
     product \
@@ -100,6 +101,8 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 # File systems
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
+BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
+BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
 # Workaround for error copying vendor files to recovery ramdisk
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -119,6 +122,7 @@ BOARD_USES_METADATA_PARTITION := true
 
 # TWRP specific build flags
 RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_REAL_SDCARD := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_THEME := portrait_hdpi
 TW_EXCLUDE_DEFAULT_USB_INIT := true
@@ -135,3 +139,6 @@ TARGET_USES_LOGD := true
 TARGET_USES_MKE2FS := true
 TW_NO_SCREEN_BLANK := true
 PLATFORM_VERSION := 16.1.0
+TW_USE_RESTORE_STOCK_REC := true
+TW_USE_PATCH_AVB2_BOOT := true
+TW_EXCLUDE_DEL_PWD := true
