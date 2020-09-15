@@ -1,5 +1,5 @@
 ro.display.series=Mi 10 Lite 5G
-ro.product.board=monet
+ro.product.board=lito
 ro.board.platform=lito
 sys.usb.controller=a600000.dwc3
 sys.usb.rndis.func.name=rndis_bam
