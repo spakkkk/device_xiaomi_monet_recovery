@@ -23,7 +23,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
-PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/recovery/root,recovery/root)
+#PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/recovery/root,recovery/root)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := monet
@@ -31,15 +31,8 @@ PRODUCT_NAME := omni_monet
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Xiaomi Mi 10 Lite 5G
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_RELEASE_NAME := Xiaomi Mi 10 Lite 5G
+
 
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.build.security_patch=2099-12-31
-
-PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
-    ro.product.device \
-    ro.product.name \
-    ro.build.product \
-    ro.bootimage.build.date.utc \
-    ro.build.date.utc
