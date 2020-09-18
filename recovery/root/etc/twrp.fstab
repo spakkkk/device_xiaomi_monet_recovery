@@ -3,10 +3,10 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 # <mount_point>      <fstype>     <device>              <device2>                 <flags>
-system               /system      ext4
-vendor		           /vendor      ext4                                            display="Vendor"
-product              /product     ext4                                            display="Product"
-odm                  /odm         ext4                                            display="ODM"
+system               /system      ext4                                            logical
+vendor		           /vendor      ext4                                            display="Vendor";logical
+product              /product     ext4                                            display="Product";logical
+odm                  /odm         ext4                                            display="ODM";logical
 /metadata            ext4         /dev/block/bootdevice/by-name/metadata          flags=display="Metadata";backup=1
 /metadata_image      emmc         /dev/block/bootdevice/by-name/metadata          flags=display="Metadata";flashimg=1
 /super_image         emmc         /dev/block/bootdevice/by-name/super             flags=display="Super";backup=1;flashimg=1
