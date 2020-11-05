@@ -34,6 +34,19 @@ PRODUCT_MODEL := Xiaomi Mi 10 Lite 5G
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_RELEASE_NAME := Xiaomi Mi 10 Lite 5G
 
+# enable stock zip packages flash
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.allow.mock.location=1
+
+# Build info
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BUILD_FINGERPRINT="Xiaomi/monet_eea/monet:10/QKQ1.191222.002/12.0.2:user/release-keys"
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    TARGET_DEVICE=monet \
+    PRODUCT_NAME=monet \
+    PRIVATE_BUILD_DESC="monet-user 10 QKQ1.191222.002 12.0.2 release-keys"
+
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.build.security_patch=2099-12-31
@@ -43,4 +56,5 @@ PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.product.name \
     ro.build.product \
     ro.bootimage.build.date.utc \
-    ro.build.date.utc
+    ro.build.date.utc \
+    ro.build.date
