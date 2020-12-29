@@ -4,7 +4,8 @@
 
 # <mount_point>      <fstype>     <device>              <device2>                 <flags>
 system               /system      ext4                                            logical
-vendor		           /vendor      ext4                                            display="Vendor";logical
+system_ext           /system_ext  ext4                                            display="System_EXT";logical
+vendor		     /vendor      ext4                                            display="Vendor";logical
 product              /product     ext4                                            display="Product";logical
 odm                  /odm         ext4                                            display="ODM";logical
 /metadata            ext4         /dev/block/bootdevice/by-name/metadata          flags=display="Metadata";backup=1

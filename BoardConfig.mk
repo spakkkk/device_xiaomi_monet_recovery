@@ -87,6 +87,7 @@ BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
     product \
     vendor \
+    system_ext \
     odm
 
 # System as root
